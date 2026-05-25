@@ -1,0 +1,6 @@
+name: TeamBattle
+version: '${version}'
+
+main: me.HenRun189.teamBattle.TeamBattle
+api-version: '26.1.2'
+load: POSTWORLD
