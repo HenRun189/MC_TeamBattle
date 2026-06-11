@@ -25,6 +25,23 @@ public class TeamBattleGameMode implements Listener {
         for (TeamData teamData : teamManager.getTeamsList())
             if (target.getCustomName().equals(teamData.getName())) {
 
+                event.isCancelled();
+
+                Entity damageSource = event.getDamageSource().getCausingEntity();
+
+                if (damageSource instanceof Player) {
+                    Player damager = (Player) damageSource;
+
+                    for (TeamData testTeam : teamManager.getTeamsList()) {
+                        for (Player player : testTeam.getPlayers().values()) {
+                            if (damager.getUniqueId() == player.getUniqueId() && !(teamData.getName().equals(testTeam.getName()))) {
+                                teamData.setEntityHealth(event.getDamage());
+                            }
+
+                        }
+                    }
+                }
             }
+
     }
 }

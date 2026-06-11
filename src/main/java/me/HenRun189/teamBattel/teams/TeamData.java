@@ -19,9 +19,11 @@ public final class TeamData {
     private HashMap<UUID, Player> players;
     private String name;
     private Entity flagEntity;
+    double entityHealth;
 
     public TeamData(String p_name) {
         name = p_name;
+        entityHealth = 100;
     }
 
     public void addPlayer(Player player) {
@@ -54,5 +56,13 @@ public final class TeamData {
 
     public Entity getFlagEntityEntity() {
         return flagEntity;
+    }
+
+    public double getEntityHealth() {
+        return entityHealth;
+    }
+
+    public void setEntityHealth(double p_entityHealth) {
+        entityHealth = p_entityHealth;
     }
 }
